@@ -10,7 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 let routes = require('./api/routes/TodoListRoutes');  // importing routes
+let healthRoutes = require('./api/routes/HealthCheckRoutes');
+
 routes(app); // register routes
+healthRoutes(app);
 
 app.listen(port);
 
