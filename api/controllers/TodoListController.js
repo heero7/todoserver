@@ -1,23 +1,10 @@
-const dummyAll = [
-    {
-        name: 'Clean house',
-        isDone: false
-    },
-    {
-        name: 'Walk dog',
-        isDone: true
-    }
-];
+const todo = require('../../persistence/Todo.DB');
 
-
-
-exports.getAll = (req, res) => {
-    res.json(dummyAll);
+exports.getAll = (_, res) => {
+    todo.getAllTodos(_, res);
 };
 
 exports.create = (req, res) => {
     // todo: You should validate!
-    let todo = req.body;
-    dummyAll.push(todo);
-    res.sendStatus(200);
+    res.sendStatus(500)
 };
