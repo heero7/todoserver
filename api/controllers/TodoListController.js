@@ -6,5 +6,5 @@ exports.getAll = (_, res) => {
 
 exports.create = (req, res) => {
     // todo: You should validate!
-    res.sendStatus(500)
+    todo.createTodo(req,res);
 };
