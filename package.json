@@ -1,0 +1,16 @@
+{
+  "name": "todoserver",
+  "version": "1.0.0",
+  "description": "A server API for a simple todo list.",
+  "main": "index.js",
+  "repository": "https://github.com/heero7/todoserver.git",
+  "author": "kevin7.mudia@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
