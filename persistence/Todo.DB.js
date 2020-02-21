@@ -1,7 +1,7 @@
 const { dbPool } = require('./queries');
 const uidGen = require('uuid');
 
-const getAllTodos = (_, res) => {
+const getAll = (_, res) => {
     dbPool.query('SELECT * FROM todos', (error, results) => {
         if (error) {
             console.error(error);
@@ -12,12 +12,13 @@ const getAllTodos = (_, res) => {
     });
 };
 
-const createTodo = (req, res) => {
-    const { name } = req.body;
+// test uid: bf2db690-9ae5-46d5-960f-1a0011fbf055
+const create = (req, res) => {
+    const { name, userid } = req.body;
     const todoId = uidGen.v4();
 
     dbPool.query('INSERT INTO todos (todoid, userid, name, status) VALUES ($1, $2, $3, $4)',
-                    [todoId, 'bf2db690-9ae5-46d5-960f-1a0011fbf055', name, 'false'],
+                    [todoId, userid, name, 'false'],
                     (error, _) => {
                         if (error) {
                             console.error(error);
@@ -29,6 +30,6 @@ const createTodo = (req, res) => {
 };
 
 module.exports = {
-    getAllTodos,
-    createTodo,
+    getAllTodos: getAll,
+    createTodo: create,
 };

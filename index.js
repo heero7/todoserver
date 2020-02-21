@@ -5,9 +5,12 @@ var express = require('express'),
     app = express(), 
     port = process.env.PORT || 4000,
     bodyParser = require('body-parser');
+const cors = require('cors');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 let routes = require('./api/routes/TodoListRoutes');  // importing routes
 let healthRoutes = require('./api/routes/HealthCheckRoutes');
